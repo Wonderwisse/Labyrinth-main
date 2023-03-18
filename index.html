@@ -45,6 +45,37 @@ https://templatemo.com/tm-518-sentra
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <link rel="icon" type="image/png" href="img/profile-pic.png">
         <style></style>
+        <script>
+            function nice() {
+                console.log(document.getElementById("name").value)
+            var name = document.getElementById("name").value;
+            // code fragment
+var data = {
+    service_id: 'service_wy8pl7b',
+    template_id: 'template_bjgeb4l',
+    user_id: 'Q2H1VBHosuxqb5O-c',
+    template_params: {
+        'name':  name,
+        'email': email,
+        'subject': subject,
+        'message' : message,
+        
+    }
+};
+ 
+$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json'
+}).done(function() {
+    alert('Your mail is sent!');
+}).fail(function(error) {
+    alert('Oops... ' + JSON.stringify(error));
+});
+// code fragment
+            }
+            
+        </script> 
     </head>
 
 <body>
@@ -573,7 +604,7 @@ https://templatemo.com/tm-518-sentra
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <button type="button" id="form-submit" class="btn">Send Message Now</button>
+                                    <button type="button" id="form-submit" class="btn" onclick="nice()">Send Message Now</button>
                                     <div id="submit-loader">
                                         <div class="text-loader">Sending...</div>                             
                                              <div class="s-loader">
